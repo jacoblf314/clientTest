@@ -1,0 +1,411 @@
+/* newsUI.css */
+
+.buttonContainer {
+    display: flex;
+    justify-content: space-between; /* Space between buttons */
+    gap: 10px; /* Optional spacing between buttons */
+    margin-top: 15px; /* Optional margin from the content above */
+}
+
+.btn {
+    flex: 1; /* Optional: Make buttons the same width */
+}
+
+/* Reset styles */
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+/* Prevent text selection */
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version */
+    cursor: pointer;
+}
+
+/* Main application container */
+#main {
+    padding: 8px;
+    max-width: 1200px;
+    min-width: 360px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 8px;
+    height: 100vh;
+    background-color: rgb(239, 239, 239);
+    overflow: hidden; 
+}
+
+/* Header styling */
+#header {
+    border: 1px solid #ccc;
+    border-radius: 9px;
+    background-color: white;
+    display: grid;
+    grid-template-columns: 50px auto auto 50px 30px;
+    width: 100%;
+    height: 60px;
+    align-items: center;
+    padding: 8px;
+}
+
+/* Content area styling */
+#content {
+    border: 1px solid #ccc;
+    border-radius: 9px;
+    width: 100%;
+    flex: 1;
+    overflow-y: auto;
+    padding-bottom: 8px;
+    overflow: hidden; 
+}
+#scrollPanel {
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    overflow-y: auto;
+    scrollbar-gutter: stable;
+    scroll-snap-type: y mandatory;
+}
+/* Scrollbar styling */
+::-webkit-scrollbar {
+    width: 16px;
+}
+
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+}
+
+/* News layout */
+.NewsRow {
+    display: flex; /* Use flexbox to align items */
+    flex-direction: column; /* Stack items in a single column */
+    align-items: center; /* Center items horizontally (optional) */
+    margin: 10px; /* Add some margin to see them better */
+}
+
+.NewsContainer {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    width: 100%; /* Full width of the container */
+    max-width: 600px; /* Increased maximum width for the cards */
+    margin: 10px 0; /* Vertical margin between cards */
+    background-color: #f5f5f5; /* Light grey background */
+    border-radius: 6px; /* Rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    overflow: hidden; /* Hide overflow for rounded corners */
+    height: 600px; /* Adjust height to ensure space for content below */
+}
+/* Category styling */
+.NewsCategory {
+    background-color: dodgerblue; /* Background color for category */
+    color: white; /* White text for better contrast */
+    padding: 5px; /* Padding around the text */
+    border-top-left-radius: 6px; /* Round top left corner */
+    border-top-right-radius: 6px; /* Round top right corner */
+    text-align: center; /* Center text */
+}
+
+/* Title styling */
+.NewsTitle {
+    font-size: 1.2rem; /* Larger font for titles */
+    font-weight: bold; /* Bold text */
+    color: #333; /* Dark text color */
+    margin: 10px; /* Margin around title */
+}
+
+/* Image styling */
+.NewsImage {
+    width: 100%; /* Full width of the card */
+    height: 300px; /* Fixed height for images */
+    object-fit: contain; /* Make sure the entire image fits, maintaining its aspect ratio */
+}
+
+/* Date styling */
+.NewsDate {
+    font-size: 0.9rem; /* Smaller font for the date */
+    color: #666; /* Lighter color for the date */
+    margin: 5px 10px; /* Margin around the date */
+}
+
+/* Text styling */
+.NewsText {
+    flex-grow: 1; /* Allow text to take remaining space */
+    padding: 10px; /* Padding around the text */
+    color: #444; /* Text color */
+}
+
+
+/* Command icons for editing and deleting */
+.NewsContainer .cmdIcon {
+    display: none; /* Initially hidden */
+}
+
+/* Show command icons on hover */
+.NewsContainer:hover .cmdIcon {
+    display: block; /* Show when hovering over the news item */
+}
+
+/* Button styling for submit and cancel actions */
+#submitNews, #cancel {
+    padding: 10px 15px; /* Padding for buttons */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+#submitNews {
+    background-color: #007bff; /* Bootstrap primary color */
+    color: white; /* White text */
+}
+
+#cancel {
+    background-color: #6c757d; /* Bootstrap secondary color */
+    color: white; /* White text */
+}
+
+/* Hover effects for buttons */
+#submitNews:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+#cancel:hover {
+    background-color: #5a6268; /* Darker grey on hover */
+}
+
+.cmdIcon {
+    font-size: 1.5rem; /* Larger icons */
+    -webkit-text-stroke-color: white; /* Stroke color for icons */
+    -webkit-text-fill-color: rgb(0, 87, 204); /* Fill color for icons */
+    text-align: center;
+    margin: 8px;
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+/* Logo styling */
+.appLogo {
+    height: 40px;
+}
+
+/* Media query for larger screens */
+@media screen and (min-width: 650px) {
+    .NewsLayout {
+        grid-template-columns: 40% 35% auto; /* Adjust layout for larger screens */
+    }
+}
+
+/* Form styling */
+form {
+    padding: 20px;
+    max-width: 350px;
+    margin: auto;
+}
+
+/* Error message styling */
+.errorContainer {
+    font-size: 1.2rem;
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    color: red; /* Red text for errors */
+    padding: 20px;
+}
+#forms {
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    overflow-y: auto;
+    scrollbar-gutter: stable;
+}
+
+/* About section styling */
+.aboutContainer {
+    padding: 20px;
+    text-align: center;
+}
+
+.aboutContainer p {
+    font-size: 1.2rem;
+    text-align: left; /* Left-align text in about section */
+}
+
+/* Input styling */
+input {
+    margin-bottom: 20px !important; /* Space below inputs */
+}
+
+/* Link styling */
+.NewsContainer a {
+    text-decoration: none !important; /* Remove underline */
+    color: white !important; /* White text for links */
+}
+
+a {
+    text-decoration: none !important; /* Remove underline from all links */
+}
+/* Command panel styling for edit and delete icons */
+/* Header styling to align title and icons in a single line */
+.NewsHeader {
+    display: flex;
+    flex-direction: column;
+}
+
+.TitleAndIcons {
+    display: flex;
+    align-items: center; /* Center icons vertically with the title */
+    gap: 10px; /* Space between the title and icons */
+}
+
+.NewsTitle {
+    flex-grow: 1; /* Make title take available space */
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.cmdIcon {
+    font-size: 1.5rem;
+    color: rgb(0, 87, 204);
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.cmdIcon:hover {
+    color: #0056b3; /* Darker color on hover */
+}
+/* Delete form container styling */
+.NewsDeleteForm {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 500px;
+    margin: 20px auto;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+}
+
+/* Title for delete confirmation */
+.NewsDeleteForm h4 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* News item preview styling */
+.NewsDeleteForm .NewsRow {
+    margin: 10px 0;
+}
+
+.NewsDeleteForm .NewsContainer {
+    background-color: #f5f5f5;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+}
+
+.NewsDeleteForm .NewsTitle {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #333;
+    display: block;
+    text-align: left;
+    padding: 5px 0;
+}
+
+.NewsDeleteForm .NewsCategory {
+    display: inline-block;
+    background-color: dodgerblue;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 3px;
+    font-size: 0.9rem;
+    margin-top: 5px;
+}
+
+/* Button styling within delete form */
+.NewsDeleteForm #deleteNews, .NewsDeleteForm #cancel {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px 5px;
+}
+
+.NewsDeleteForm #deleteNews {
+    background-color: #d9534f; /* Red for delete button */
+    color: white;
+}
+
+.NewsDeleteForm #cancel {
+    background-color: #6c757d; /* Grey for cancel button */
+    color: white;
+}
+
+/* Hover effects for delete form buttons */
+.NewsDeleteForm #deleteNews:hover {
+    background-color: #c9302c; /* Darker red on hover */
+}
+
+.NewsDeleteForm #cancel:hover {
+    background-color: #5a6268; /* Darker grey on hover */
+}
+/* Filter container styling */
+#filterContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    gap: 10px; /* Space between filter elements */
+    background-color: #f8f9fa; /* Light background for contrast */
+    border-bottom: 1px solid #ddd; /* Subtle border at the bottom */
+    margin-bottom: 10px; /* Space below the filter bar */
+    border-radius: 5px;
+}
+
+/* Input styling for search bar */
+#searchInput {
+    width: 100%;
+    max-width: 300px; /* Limit maximum width */
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+#searchInput:focus {
+    border-color: #007bff; /* Highlight border on focus */
+}
+
+/* Submit button styling */
+#filterButton {
+    padding: 8px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#filterButton:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
