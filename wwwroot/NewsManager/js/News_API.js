@@ -1,5 +1,5 @@
 class News_API {
-    static API_URL() { return "http://localhost:5000/api/news"; }
+    static API_URL() { return "https://four-utopian-canary.glitch.me/api/news"; }
     static initHttpState() {
         this.currentHttpError = "";
         this.currentStatus = 0;
